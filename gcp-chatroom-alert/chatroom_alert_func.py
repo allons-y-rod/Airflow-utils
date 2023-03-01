@@ -12,10 +12,10 @@ def alert_failed_task(context):
     error_message = str(context.get('exception'))
     if len(error_message) > 500:
         error_message = error_message[:200] + \
-            '...Error message size is too long, see log below for more details'
+            '...O tamanho da mensagem de erro é muito longo, veja o log abaixo para mais detalhes'
     else:
         error_message
-    url = 'INSIRA O WEBHOOK DO CHAT ROOM AQUI'
+    url_gcp = 'INSIRA O WEBHOOK DO CHAT ROOM AQUI'
     message = f'''{{
         "text":
         "Task Failed:
@@ -26,5 +26,5 @@ def alert_failed_task(context):
             Log Url: <{log_url}|Clique aqui para ver os logs>"
     }}'''
     headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8'}
-    r = requests.post(url, data=message, headers=headers)
+    r = requests.post(url_gcp, data=message, headers=headers)
     return r
