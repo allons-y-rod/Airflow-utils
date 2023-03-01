@@ -1,3 +1,6 @@
+# No default_args da DAG deve-se passar o parâmetro 'on_failure_callback': alert_failed_task
+# Deve-se criar um chat room na GCP e um webhook
+
 import requests
 from datetime import timedelta, datetime
 
@@ -12,7 +15,7 @@ def alert_failed_task(context):
             '...Error message size is too long, see log below for more details'
     else:
         error_message
-    url = 'INSIRA O WEBHOOK AQUI'
+    url = 'INSIRA O WEBHOOK DO CHAT ROOM AQUI'
     message = f'''{{
         "text":
         "Task Failed:
